@@ -6,6 +6,11 @@ function signup(user) {
     .then(token => tokenService.setToken(token.token));
 }
 
+function getUser() {
+  return tokenService.getUserFromToken();
+}
+
 export default {
-    signup
+    signup,
+    getUser
 }

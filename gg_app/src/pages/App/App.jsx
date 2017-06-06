@@ -1,30 +1,49 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom';
 import './App.css';
+import HomePage from '../HomePage/HomePage';
+import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../utils/userService';
-import NavBar from '../../components/NavBar/NavBar';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
 
     }
   }
 
-/*---lifecycle methods---*/
-// componentDidMount() {
-//   let user = userService.getUser();
-//   this.setState({user});
-// }
+  handleSignup = () => {
+    this.setState({user: userService.getUser()});
+  }
+
+  /*---lifecycle methods---*/
+  componentDidMount() {
+    let user = userService.getUser();
+    this.setState({ user });
+  }
 
   render() {
     return (
       <div>
-        <NavBar />
-        <div className="header">
-          <h2>BLEPO!</h2>
-        </div>
+        <Router>
+          <Switch>
+            <Route exact path='/' render={() =>
+              <HomePage />
+            } />
+            <Route exact path='/signup' render={(props) => 
+              <SignupPage
+                {...props}
+                handleSignup={this.handleSignup}
+              />
+            }/>
+          </Switch>
+        </Router>
       </div>
     );
   }
