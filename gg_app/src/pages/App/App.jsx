@@ -2,20 +2,35 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
+  Route
 } from 'react-router-dom';
 import './App.css';
+import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import SignupPage from '../SignupPage/SignupPage';
+import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      user: null,
+      videos: null
     }
+  }
+
+  handleVidPost = () => {
+    this.setState({videos: 'hello!'})
+  }
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({user: null});
+  }
+  
+  handleLogin = () => {
+    this.setState({user: userService.getUser()});
   }
 
   handleSignup = () => {
@@ -33,13 +48,24 @@ class App extends Component {
       <div>
         <Router>
           <Switch>
+            <NavBar user={this.state.user} handleLogout={this.handleLogout} />
             <Route exact path='/' render={() =>
-              <HomePage />
+              <HomePage 
+                user={this.state.user}
+                handleLogout={this.handleLogout}
+                handleVidPost={this.handleVidPost}
+              />
             } />
             <Route exact path='/signup' render={(props) => 
               <SignupPage
                 {...props}
                 handleSignup={this.handleSignup}
+              />
+            }/>
+            <Route exact path='/login' render={(props) => 
+              <LoginPage
+                {...props}
+                handleLogin={this.handleLogin}
               />
             }/>
           </Switch>

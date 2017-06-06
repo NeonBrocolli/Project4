@@ -10,20 +10,20 @@ function signup(user) {
     if (res.ok) return res.json();
     throw new Error('Email already taken!');
   })
-  .then(data => data);
+  .then(({token}) => token);
 }
 
-function login(credentials) {
+function login(user) {
   return fetch(BASE_URL + 'login', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),
-    body: JSON.stringify(credentials)
+    body: JSON.stringify(user)
   })
   .then(res => {
     if (res.ok) return res.json();
     throw new Error('Bad credentials');
   })
-  .then(token => token);
+  .then(({token}) => token);
 }
 
 export default {
