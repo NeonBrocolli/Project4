@@ -1,7 +1,7 @@
-var User = require('../models/users');
+var Video = require('../models/videos');
 
 function postVid(req, res) {
-  console.log(User)
+  console.log(Video)
 }
 
 module.exports = {
