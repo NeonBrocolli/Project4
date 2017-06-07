@@ -14,6 +14,7 @@ class SignupPage extends Component {
   render() {
     return (
       <div className='SignupPage'>
+        <h2>SECRET HIDDEN TREASURE!</h2>
         <SignupForm
           {...this.props}
           updateMessage={this.updateMessage}

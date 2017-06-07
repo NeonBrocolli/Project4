@@ -17,7 +17,7 @@ const NavBar = (props, context) => {
     </div>;
 
     return (
-      <div className="navbar navbar-default">
+      <div className="navbar navbar-default navbar-fixed-top">
         {nav}
       </div>
     );

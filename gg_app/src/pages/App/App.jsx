@@ -14,12 +14,15 @@ import userService from '../../utils/userService';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      user: null,
-      videos: null
+    this.state ={ 
+      user: null, 
+      videos: null 
     }
   }
+/*  helpers  */
 
+
+/* callbacks  */
   handleVidPost = () => {
     this.setState({videos: 'hello!'})
   }
@@ -47,28 +50,30 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <Switch>
-          <NavBar user={this.state.user} handleLogout={this.handleLogout} />
-            <Route exact path='/' render={() =>
-              <HomePage 
-                user={this.state.user}
-                handleLogout={this.handleLogout}
-                handleVidPost={this.handleVidPost}
-              />
-            } />
-            <Route exact path='/signup' render={(props) => 
-              <SignupPage
-                {...props}
-                handleSignup={this.handleSignup}
-              />
-            }/>
-            <Route exact path='/login' render={(props) => 
-              <LoginPage
-                {...props}
-                handleLogin={this.handleLogin}
-              />
-            }/>
-          </Switch>
+          <div>
+            <NavBar user={this.state.user} handleLogout={this.handleLogout} />
+            <Switch>
+              <Route exact path='/' render={() =>
+                <HomePage 
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
+                  handleVidPost={this.handleVidPost}
+                />
+              } />
+              <Route exact path='/signup' render={(props) => 
+                <SignupPage
+                  {...props}
+                  handleSignup={this.handleSignup}
+                />
+              }/>
+              <Route exact path='/login' render={(props) => 
+                <LoginPage
+                  {...props}
+                  handleLogin={this.handleLogin}
+                />
+              }/>
+            </Switch>
+          </div>
         </Router>
       </div>
     );
