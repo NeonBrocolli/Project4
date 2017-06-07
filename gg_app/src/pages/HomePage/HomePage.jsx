@@ -31,8 +31,8 @@ class HomePage extends Component {
         return(
             <div>
                 <h2>SECRET HIDDEN TREASURE!</h2>
-                {!this.state.videoFeeds ? 'LOADING' : this.state.videoFeeds.map(item => 
-                <div className="home">
+                {!this.state.videoFeeds ? 'LOADING' : this.state.videoFeeds.map((item, index) => 
+                <div key={index} className="home">
                     <ReactPlayer width="420" height="315" url={item.url} />
                     <h1>{item.title}</h1>
                 </div>

@@ -21,7 +21,9 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  console.log(Video)
+  var video = new Video(req.body);
+  video.save();
+  console.log(video)
 }
 
 module.exports = {

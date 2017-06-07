@@ -14,13 +14,19 @@ import userService from '../../utils/userService';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state ={ 
+    this.state = {
       user: null, 
-      videos: null 
+      videos: [this.getNewVideo()] 
     }
   }
 /*  helpers  */
-
+getNewVideo() {
+  return {
+    title: '',
+    url: '',
+    ratings: []
+  };
+}
 
 /* callbacks  */
   handleVidPost = () => {
