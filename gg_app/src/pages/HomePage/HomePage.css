@@ -4,3 +4,10 @@
   align-items: center;
   padding: 30px;
 }
+
+.jumbotron {
+  background-color: pink;
+  height: 300px;
+  color: white;
+  text-align: center;
+}

@@ -16,17 +16,24 @@ const videoFeed = [
 ];
 
 function index(req, res) {
-  res.json(videoFeed);
-  console.log(req.body)
+  // res.json(videoFeed);
+  Video.find({}).exec().then(videos => res.json(videos));
+}
+
+function forUser(req, res) {
+  Video.find({user: req.user._id})
+  .exec().then(videos => res.json(videos));
 }
 
 function create(req, res) {
   var video = new Video(req.body);
-  video.save();
-  console.log(video)
+  video.user = req.user._id;
+  video.save()
+  .then(() => res.json(video));
 }
 
 module.exports = {
   index,
-  create
+  create,
+  forUser
 };

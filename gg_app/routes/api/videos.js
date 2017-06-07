@@ -3,8 +3,9 @@ var router = express.Router();
 var videosCtrl = require('../../controllers/videos');
 
 /*---------- Public Routes ----------*/
-router.post('/', videosCtrl.create);
+router.post('/', checkAuth, videosCtrl.create);
 router.get('/', videosCtrl.index);
+router.get('/', checkAuth, videosCtrl.forUser);
 
 
 

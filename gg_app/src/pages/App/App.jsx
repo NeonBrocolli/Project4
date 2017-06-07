@@ -15,23 +15,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null, 
-      videos: [this.getNewVideo()] 
+      user: null
     }
   }
 /*  helpers  */
-getNewVideo() {
-  return {
-    title: '',
-    url: '',
-    ratings: []
-  };
-}
 
 /* callbacks  */
-  handleVidPost = () => {
-    this.setState({videos: 'hello!'})
-  }
 
   handleLogout = () => {
     userService.logout();
@@ -59,10 +48,10 @@ getNewVideo() {
           <div>
             <NavBar user={this.state.user} handleLogout={this.handleLogout} />
             <Switch>
-              <Route exact path='/' render={() =>
+              <Route exact path='/' render={(props) =>
                 <HomePage 
+                  {...props}
                   user={this.state.user}
-                  handleLogout={this.handleLogout}
                   handleVidPost={this.handleVidPost}
                 />
               } />
