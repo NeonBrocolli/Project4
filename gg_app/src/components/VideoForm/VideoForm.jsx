@@ -7,7 +7,8 @@ class VideoForm extends Component {
     super(props);
     this.state = {
       title: '',
-      url: ''
+      url: '',
+      description: ''
     }
   }
 
@@ -23,8 +24,9 @@ class VideoForm extends Component {
     let self = this;
     videoService.createVideo(this.state)
       .then(video => {
-        self.setState({title: '', url: ''});
+        self.setState({title: '', url: '', description: ''});
         self.props.updateMessage('Uploaded Video');
+        self.props.history.push('/');
       })
       .catch(err => self.props.updateMessage(err.message));
   }
@@ -35,7 +37,7 @@ class VideoForm extends Component {
 
   render() {
     return (
-      <div className="footer">
+      <div>
         <header className="header-footer">Post a Video</header>
         <form onSubmit={this.handleSubmit}>
           <div>
@@ -45,10 +47,15 @@ class VideoForm extends Component {
           <div>
             <input type="url" placeholder="link" value={this.state.url} onChange={(e) => this.handleChange('url', e)} />
           </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div>
+            <textarea type="text" placeholder="Description" value={this.state.description} onChange={(e) => this.handleChange('description', e)} />
+          </div>
           <div>
             <button className="btn btn-default" disabled={this.isFormInvalid()}>Post a vid!</button>&nbsp;&nbsp;
           </div>
         </form>
+        <Link to='/'>Cancel</Link>
       </div>
     );
   }

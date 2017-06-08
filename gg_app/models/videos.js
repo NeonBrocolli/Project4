@@ -10,6 +10,7 @@ var ratingSchema = new mongoose.Schema({
 var videoSchema = new mongoose.Schema({
   title: String,
   url: String,
+  description: String,
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   ratings: [ratingSchema]
 })

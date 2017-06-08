@@ -1,13 +1,30 @@
-.home {
-  display: flex;
-  flex-flow: nowrap;
+.thumbnail {
   align-items: center;
-  padding: 30px;
+  padding: 10px;
+}
+
+.gg {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 100px;
+}
+.text {
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+.homepage-footer {
+  height: 50px;
 }
 
 .jumbotron {
+  /*background-image: url('http://i.imgur.com/ogeNJPO.jpg');*/
   background-color: pink;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 300px;
   color: white;
   text-align: center;
+  margin-top: 50px;
 }

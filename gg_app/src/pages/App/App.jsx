@@ -8,6 +8,7 @@ import './App.css';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import SignupPage from '../SignupPage/SignupPage';
+import VideoPage from '../VideoPage/VideoPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 
@@ -21,6 +22,7 @@ class App extends Component {
 /*  helpers  */
 
 /* callbacks  */
+
 
   handleLogout = () => {
     userService.logout();
@@ -52,7 +54,12 @@ class App extends Component {
                 <HomePage 
                   {...props}
                   user={this.state.user}
-                  handleVidPost={this.handleVidPost}
+                />
+              } />
+              <Route exact path='/videos' render={(props) =>
+                <VideoPage 
+                  {...props}
+                  user={this.state.user}
                 />
               } />
               <Route exact path='/signup' render={(props) => 

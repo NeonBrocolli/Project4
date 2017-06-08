@@ -5,7 +5,7 @@ var videosCtrl = require('../../controllers/videos');
 /*---------- Public Routes ----------*/
 router.post('/', checkAuth, videosCtrl.create);
 router.get('/', videosCtrl.index);
-router.get('/', checkAuth, videosCtrl.forUser);
+router.get('/videos', checkAuth, videosCtrl.forUser);
 
 
 
