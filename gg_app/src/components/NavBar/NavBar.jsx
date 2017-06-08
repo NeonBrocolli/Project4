@@ -1,25 +1,31 @@
 import React from 'react';
-import './NavBar.css';
 import { Link } from 'react-router-dom';
+import './NavBar.css';
 
 const NavBar = (props, context) => {
       console.log('nav props', props.user)
   let nav = props.user ?
-    <div>
-      <Link to="/" className='NavBar-link' >Upload</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <Link to="" className='NavBar-link' onClick={props.handleLogout} >LOG OUT</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
-    </div> :
-    <div>
-      <Link to="/login" className='NavBar-link'>LOG IN</Link>
+  <div className="nav-content">
+    <div className="nav-wrapper">
+      <ul className="tabs tabs-transparent">
+        <li className="tab"><Link to="/">Upload</Link></li>
+        <li className="tab"><Link to="" onClick={props.handleLogout} >LOG OUT</Link></li>
+        <li className="tab disabled"><a>WELCOME, {props.user.name}</a></li>
+      </ul>
+    </div>
+  </div> :
+  <div className="nav-content">
+    <div className="nav-wrapper">
+      <ul className="tabs tabs-transparent">
+      <li className="tab"><Link to="/login" >LOG IN</Link></li>
       &nbsp;&nbsp;|&nbsp;&nbsp;
-      <Link to="/signup" className='NavBar-link'>SIGN UP</Link>
-    </div>;
+      <li className="tab"><Link to="/signup" >SIGN UP</Link></li>
+      </ul>
+    </div>
+  </div>;
 
     return (
-      <div className="navbar navbar-inverse navbar-fixed-top">
+      <div className="nav-extend navbar-fixed-top grey darken-3">
         {nav}
       </div>
     );

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import $ from 'jquery';
 import './HomePage.css';
 import ReactPlayer from 'react-player';
 import VideoForm from '../../components/VideoForm/VideoForm';
@@ -51,27 +52,46 @@ class HomePage extends Component {
             view = <h4 className="text">Log In or Sign up to Post</h4>
         }
         return(
-            <div>
+            <div className="homepage">
                 <div className="jumbotron">
-                    <div className="gg">G&nbsp;G</div>
+                    <h1>G&nbsp;G</h1>
                 </div>
-                <div>
-                    {view}
-                </div>
-                <div className="row">
-                    <div className="col-xs-6 col-md-2">
-                        {!this.state.videoFeeds ? 'LOADING' : this.state.videoFeeds.map((item, index) => 
-                        <div key={index} className="thumbnail">
-                            <ReactPlayer width="420" height="315" controls="true" url={item.url} />
-                            <div className="caption">
-                                <h1>{item.title}</h1>
-                                <p>{item.description}</p>
+                <div className="homepage-videos container">
+                    <div className="row">
+                        <div className="col-xs-6 col-md-12">
+                            {!this.state.videoFeeds ? 'LOADING' : this.state.videoFeeds.map((item, index) => 
+                            <div key={index} className="card">
+                                <ReactPlayer width="420" height="315" className="center-block" controls="true" url={item.url} />
+                                <div className="card-block">
+                                    <h1 className="card-title">{item.title}</h1>
+                                    <p className="card-text">{item.description}</p>
+                                </div>
                             </div>
+                            )}
                         </div>
-                        )}
                     </div>
                 </div>
-                <footer className="homepage-footer navbar-fixed-bottom navbar-inverse">
+                <div className="side-nav">
+                    <span>{view}</span>
+                    <ul id="slide-out" class="side-nav">
+                        <li><div class="userView">
+                            <div class="background">
+                                <img src="images/office.jpg" />
+                            </div>
+                             </div>
+                        <img class="circle" src="images/yuna.jpg" />
+                        <span class="white-text name">user name</span>
+                        <span class="white-text email">user email</span>
+                        </li>
+                        <li><div class="divider"></div></li>
+                        <li><Link to=""><i class="material-icons">cloud</i>1</Link></li>
+                        <li><Link to=""><i class="material-icons">cloud</i>2</Link></li>
+                        <li><Link to=""><i class="material-icons">cloud</i>3</Link></li>
+                        <li><Link to=""><i class="material-icons">cloud</i>4</Link></li>
+                    </ul>
+                </div>
+                <footer className="footer">
+                    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
                 </footer>
             </div>
         )

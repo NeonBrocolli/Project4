@@ -12,6 +12,7 @@
     "morgan": "^1.8.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-materialize": "^1.0.1",
     "react-player": "^0.18.0",
     "react-router-dom": "^4.1.1",
     "serve-favicon": "^2.4.3"
