@@ -1,0 +1,10 @@
+.sidenav {
+  position: fixed;
+  margin-top: 40px;
+  margin-left: 35px;
+}
+
+.nav-text {
+  color: gray;
+  padding: 8px;
+}

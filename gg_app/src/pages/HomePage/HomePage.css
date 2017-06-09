@@ -3,6 +3,11 @@
   flex-flow: column nowrap;
 }
 
+.homepage-title {
+  font-family: 'Audiowide', cursive;
+  font-size: 200px;
+}
+
 .homepage-videos {
   display: flex;
   flex-flow: row nowrap;
@@ -11,14 +16,14 @@
   margin: 50px auto;
 }
 
-.card-text {
-  text-align: justify;
-  width: 50px;
+.homepage-footer {
+  height: 50px;
 }
 
-.homepage-title {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 100px;
+.card-action {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
 }
 
 .text {
@@ -27,18 +32,20 @@
   padding: 10px;
 }
 
-.homepage-footer {
-  height: 50px;
-}
-
 .jumbotron {
-  /*background-image: url('http://i.imgur.com/ogeNJPO.jpg');*/
-  background-color: pink;
+  background-image: url('https://images3.alphacoders.com/751/751195.jpg');
+  background-color: black;
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   height: 300px;
   color: white;
   text-align: center;
-  margin-top: 5px;
+}
+
+p {
+  word-break: break-all;
+  white-space: normal;
+  width: 50%;
+  height: 50%;
 }

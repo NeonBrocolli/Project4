@@ -14,7 +14,6 @@ class VideoPage extends Component {
   render() {
     return (
       <div>
-        <h2>SECRET HIDDEN TREASURE!</h2>
         <VideoForm 
           {...this.props}
           updateMessage={this.updateMessage}

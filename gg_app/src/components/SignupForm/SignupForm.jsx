@@ -38,35 +38,25 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Sign Up</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="Name" value={this.state.name} onChange={(e) => this.handleChange('name', e)} />
+      <div className="container">
+        <header>SIGN UP</header>
+        <form className="col s12" onSubmit={this.handleSubmit} >
+            <div>
+              <input type="text" placeholder="Name" value={this.state.name} onChange={(e) => this.handleChange('name', e)} />
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
+            <div className="col s6">
+              <input type="email" placeholder="Email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.password} onChange={(e) => this.handleChange('password', e)} />
+            <div className="col s6">
+              <input type="password" placeholder="Password" value={this.state.password} onChange={(e) => this.handleChange('password', e)} />
             </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} onChange={(e) => this.handleChange('passwordConf', e)} />
+            <div className="col s12">
+              <input type="password" placeholder="Confirm Password" value={this.state.passwordConf} onChange={(e) => this.handleChange('passwordConf', e)} />
             </div>
-          </div>
-          <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+              <button className="btn light-green darken-3" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+              <Link to='/' className="btn deep-orange accent-2">Cancel</Link>
             </div>
-          </div>
         </form>
       </div>
     );

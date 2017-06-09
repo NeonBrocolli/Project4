@@ -25,6 +25,15 @@ function forUser(req, res) {
   .exec().then(videos => res.json(videos));
 }
 
+function voteStat(req, res) {
+  console.log(req.params)
+  Video.findById(req.params.id)
+  .exec().then(video => {
+    video[req.params.stat] += 1;
+    video.save().then(() => res.json(video));
+  });
+}
+
 function create(req, res) {
   var video = new Video(req.body);
   video.user = req.user._id;
@@ -35,5 +44,6 @@ function create(req, res) {
 module.exports = {
   index,
   create,
-  forUser
+  forUser,
+  voteStat
 };

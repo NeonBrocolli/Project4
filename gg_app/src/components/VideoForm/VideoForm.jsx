@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import './VideoForm.css';
 import * as videoService from '../../utils/videoService';
 
 class VideoForm extends Component {
@@ -37,8 +38,8 @@ class VideoForm extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Post a Video</header>
+      <div className="container">
+        <header>Post a Video</header>
         <form onSubmit={this.handleSubmit}>
           <div>
             <input type="text" placeholder="title" value={this.state.title} onChange={(e) => this.handleChange('title', e)} />
@@ -52,10 +53,10 @@ class VideoForm extends Component {
             <textarea type="text" placeholder="Description" value={this.state.description} onChange={(e) => this.handleChange('description', e)} />
           </div>
           <div>
-            <button className="btn btn-default" disabled={this.isFormInvalid()}>Post a vid!</button>&nbsp;&nbsp;
+            <button className="btn light-green darken-3" disabled={this.isFormInvalid()}>Post a vid!</button>&nbsp;&nbsp;
+            <Link to='/' className="btn deep-orange accent-2">Cancel</Link>
           </div>
         </form>
-        <Link to='/'>Cancel</Link>
       </div>
     );
   }
