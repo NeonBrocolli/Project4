@@ -13,7 +13,7 @@
 ## Categories:
 The games viewed are categorized in 4 different attributes such as:
 
-<img src="http://i.imgur.com/1pSdh3h.png" style="width: 200px;"/> <img src="http://i.imgur.com/sn5TxRV.png" style="width: 400px;"/>
+<img src="http://i.imgur.com/1pSdh3h.png" style="width: 20px;"/> <img src="http://i.imgur.com/sn5TxRV.png" style="width: 40px;"/>
   
 **Jouzu:** or (very good/skilled) is for how skilled the player's gameplay is.
 
