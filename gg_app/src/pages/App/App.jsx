@@ -19,10 +19,6 @@ class App extends Component {
       user: null
     }
   }
-/*  helpers  */
-
-/* callbacks  */
-
 
   handleLogout = () => {
     userService.logout();
@@ -37,7 +33,6 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
-  /*---lifecycle methods---*/
   componentDidMount() {
     let user = userService.getUser();
     this.setState({ user });
@@ -51,28 +46,16 @@ class App extends Component {
             <NavBar user={this.state.user} handleLogout={this.handleLogout} />
             <Switch>
               <Route exact path='/' render={(props) =>
-                <HomePage 
-                  {...props}
-                  user={this.state.user}
-                />
+                <HomePage {...props} user={this.state.user} />
               } />
               <Route exact path='/videos' render={(props) =>
-                <VideoPage 
-                  {...props}
-                  user={this.state.user}
-                />
+                <VideoPage {...props} user={this.state.user} />
               } />
               <Route exact path='/signup' render={(props) => 
-                <SignupPage
-                  {...props}
-                  handleSignup={this.handleSignup}
-                />
+                <SignupPage {...props} handleSignup={this.handleSignup} />
               }/>
               <Route exact path='/login' render={(props) => 
-                <LoginPage
-                  {...props}
-                  handleLogin={this.handleLogin}
-                />
+                <LoginPage {...props} handleLogin={this.handleLogin} />
               }/>
             </Switch>
           </div>
