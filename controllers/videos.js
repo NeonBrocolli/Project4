@@ -16,7 +16,6 @@ const videoFeed = [
 ];
 
 function index(req, res) {
-  // res.json(videoFeed);
   Video.find({}).exec().then(videos => res.json(videos));
 }
 
