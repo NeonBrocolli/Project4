@@ -8,6 +8,11 @@
   font-size: 200px;
 }
 
+.video {
+  margin-top: 5px;
+  padding: 10px;
+}
+
 .homepage-videos {
   display: flex;
   flex-flow: row nowrap;

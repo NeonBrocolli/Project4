@@ -83,10 +83,12 @@ class HomePage extends Component {
                 </div>
                 <div className="homepage-videos container">
                     <div className="row">
-                        <div className="col-xs-6 col-md-12">
+                        <div>
                             {!this.state.videoFeeds ? 'LOADING' : this.state.videoFeeds.map((item, index) => 
                             <div key={index} className="card">
-                                <ReactPlayer width={520} height={415} className="center-block" controls={true} url={item.url} />
+                                <div className="video">
+                                    <ReactPlayer width={520} height={415} className="center-block" controls={true} url={item.url} />
+                                </div>
                                 <div className="card-block">
                                     <div className="card-content">
                                     <h1 className="card-title"><u>{item.title}</u></h1>
@@ -98,12 +100,13 @@ class HomePage extends Component {
                                         <Button onClick={() => this.upVote(item._id, 'skilledVotes')} className="cyan darken-1" icon="gavel"> {item.skilledVotes}+</Button>
                                     </div>
                                     <div>
+                                        &nbsp;RageQuit:&nbsp;
+                                        <Button onClick={() => this.upVote(item._id, 'rageVotes')} className="indigo darken-2" icon="sentiment_very_dissatisfied"> {item.rageVotes}+</Button>
+                                    </div>
+                                    <div>
                                         &nbsp;Funny:&nbsp;
                                         <Button onClick={() => this.upVote(item._id, 'funnyVotes')} className="red darken-1" icon="tag_faces"> {item.funnyVotes}+</Button>
                                     </div>
-                                    <div>
-                                        &nbsp;RageQuit:&nbsp;
-                                        <Button onClick={() => this.upVote(item._id, 'rageVotes')} className="deep-purple lighten-1" icon="sentiment_very_dissatisfied"> {item.rageVotes}+</Button></div>
                                     <div>
                                         &nbsp;Like:&nbsp;
                                         <Button onClick={() => this.upVote(item._id, 'likeVotes')} className="red lighten-3" icon="favorite"> {item.likeVotes}+</Button>
